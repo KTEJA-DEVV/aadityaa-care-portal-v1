@@ -28,13 +28,13 @@ const HeroSection = () => {
                 Book Appointment
               </Button>
             </a>
-            <a href="tel:9381126231">
-              <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 gap-2">
+            <a href="tel:+919381126231">
+              <Button size="lg" className="bg-gradient-gold text-gold-foreground font-semibold text-base hover:opacity-90 shadow-lg gap-2">
                 <Phone className="w-5 h-5" /> Call Now
               </Button>
             </a>
             <a href="https://wa.me/919381126231" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 gap-2">
+              <Button size="lg" className="bg-gradient-gold text-gold-foreground font-semibold text-base hover:opacity-90 shadow-lg gap-2">
                 <MessageCircle className="w-5 h-5" /> WhatsApp
               </Button>
             </a>
