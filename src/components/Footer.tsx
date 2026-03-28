@@ -10,7 +10,7 @@ const Footer = () => {
           <div>
             <img src={logo} alt="Aadityaa Hospital" className="h-14 w-auto rounded mb-4" />
             <p className="text-primary-foreground/70 text-sm leading-relaxed max-w-xs">
-              Healing with Trust and Expertise. Comprehensive women's healthcare by Dr. Sreelatha Gunda.
+              AADITYAA HOSPITAL, 8-7-91 / 15 / P-4 / 56, Plot No-56, Teachers Colony, ZP Road, BN Reddy Nagar, RR Dist - 500079
             </p>
           </div>
 
@@ -40,7 +40,7 @@ const Footer = () => {
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-secondary hover:text-secondary-foreground flex items-center justify-center transition-colors" aria-label="Facebook">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-secondary hover:text-secondary-foreground flex items-center justify-center transition-colors" aria-label="Instagram">
+              <a href="https://www.instagram.com/p/DWEJwwikTCp/?igsh=cjNsbWx5djFncms5" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-secondary hover:text-secondary-foreground flex items-center justify-center transition-colors" aria-label="Instagram">
                 <Instagram className="w-5 h-5" />
               </a>
               <a href="https://wa.me/919381126231" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-secondary hover:text-secondary-foreground flex items-center justify-center transition-colors" aria-label="WhatsApp">
