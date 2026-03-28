@@ -62,7 +62,7 @@ const ContactSection = () => {
               </div>
               <div>
                 <h4 className="font-semibold text-foreground mb-1">Working Hours</h4>
-                <p className="text-sm text-muted-foreground">Open 24/7 – All Days</p>
+                <p className="text-sm text-muted-foreground">Available 24/7 – Serving You Every Day</p>
               </div>
             </div>
           </div>
