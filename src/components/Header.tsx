@@ -19,7 +19,6 @@ const Header = () => {
       <div className="container flex items-center justify-between h-16 md:h-20">
         <a href="#home" className="flex items-center gap-3">
           <img src={logo} alt="Aadityaa Hospital Logo" className="h-12 md:h-14 w-auto rounded" />
-          <span className="font-display text-lg md:text-xl font-bold text-primary">Aadityaa Hospital</span>
         </a>
 
         {/* Desktop Nav */}
