@@ -17,10 +17,15 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
       <div className="container flex items-center justify-between h-16 md:h-20">
-        <a href="#home" className="flex items-center gap-3">
-          <img src={logo} alt="Aadityaa Hospital Logo" className="h-12 md:h-14 w-auto rounded" />
-          <span className="hidden md:inline text-lg font-bold text-primary">Aadityaa Hospital</span>
-          <span className="md:hidden text-base font-bold text-primary">Aadityaa Hospital</span>
+        {/* Desktop/Tablet: logo + name on left */}
+        <a href="#home" className="hidden md:flex items-center gap-3">
+          <img src={logo} alt="Aadityaa Hospital Logo" className="h-14 w-auto rounded" />
+          <span className="text-lg font-bold text-primary">Aadityaa Hospital</span>
+        </a>
+
+        {/* Mobile: name on left */}
+        <a href="#home" className="md:hidden flex items-center">
+          <span className="text-base font-bold text-primary">Aadityaa Hospital</span>
         </a>
 
         {/* Desktop Nav */}
@@ -49,10 +54,13 @@ const Header = () => {
           </a>
         </div>
 
-        {/* Mobile toggle */}
-        <button className="md:hidden p-2" onClick={() => setOpen(!open)} aria-label="Toggle menu">
-          {open ? <X className="w-6 h-6 text-foreground" /> : <Menu className="w-6 h-6 text-foreground" />}
-        </button>
+        {/* Mobile: logo + hamburger on right */}
+        <div className="md:hidden flex items-center gap-2">
+          <img src={logo} alt="Aadityaa Hospital Logo" className="h-10 w-auto rounded" />
+          <button className="p-2" onClick={() => setOpen(!open)} aria-label="Toggle menu">
+            {open ? <X className="w-6 h-6 text-foreground" /> : <Menu className="w-6 h-6 text-foreground" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Nav */}
