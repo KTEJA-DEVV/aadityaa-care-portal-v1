@@ -40,13 +40,11 @@ const Header = () => {
           </div>
         </a>
 
-        {/* Mobile: logo on left */}
-        <a href="#home" className="md:hidden flex items-center">
-          <img src={logo} alt="Aadityaa Hospital Logo" className="h-10 w-auto" />
-        </a>
-
-        {/* Mobile: name/tagline + hamburger on right */}
+        {/* Mobile: name/tagline + hamburger on left */}
         <div className="md:hidden flex items-center gap-2">
+          <button className="p-2" onClick={() => setOpen(!open)} aria-label="Toggle menu">
+            {open ? <X className="w-6 h-6 text-foreground" /> : <Menu className="w-6 h-6 text-foreground" />}
+          </button>
           <a href="#home" className="flex flex-col leading-tight">
             <span
               className="text-base font-extrabold tracking-wide"
@@ -65,10 +63,12 @@ const Header = () => {
               <span className="flex-1 h-[1.5px]" style={{ backgroundColor: "#2D1054" }} />
             </div>
           </a>
-          <button className="p-2" onClick={() => setOpen(!open)} aria-label="Toggle menu">
-            {open ? <X className="w-6 h-6 text-foreground" /> : <Menu className="w-6 h-6 text-foreground" />}
-          </button>
         </div>
+
+        {/* Mobile: logo on right */}
+        <a href="#home" className="md:hidden flex items-center">
+          <img src={logo} alt="Aadityaa Hospital Logo" className="h-10 w-auto" />
+        </a>
       </div>
 
       {/* Mobile Nav */}
