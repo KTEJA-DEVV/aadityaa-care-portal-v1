@@ -40,55 +40,31 @@ const Header = () => {
           </div>
         </a>
 
-        {/* Mobile: name/tagline on left */}
-        <a href="#home" className="md:hidden flex flex-col leading-tight">
-          <span
-            className="text-base font-extrabold tracking-wide"
-            style={{ color: "#D4A017", fontFamily: "'Times New Roman', Times, serif" }}
-          >
-            AADITYAA HOSPITAL
-          </span>
-          <div className="flex items-center gap-1.5 mt-0.5">
-            <span className="flex-1 h-[1.5px]" style={{ backgroundColor: "#2D1054" }} />
-            <span
-              className="text-[7px] font-semibold tracking-[0.12em] whitespace-nowrap"
-              style={{ color: "#2D1054", fontFamily: "'Times New Roman', Times, serif" }}
-            >
-              HEALING WITH TRUST AND EXPERTISE
-            </span>
-            <span className="flex-1 h-[1.5px]" style={{ backgroundColor: "#2D1054" }} />
-          </div>
+        {/* Mobile: logo on left */}
+        <a href="#home" className="md:hidden flex items-center">
+          <img src={logo} alt="Aadityaa Hospital Logo" className="h-10 w-auto" />
         </a>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-            >
-              {l.label}
-            </a>
-          ))}
-        </nav>
-
-        <div className="hidden md:flex items-center gap-3">
-          <a href="tel:9381126231">
-            <Button variant="outline" size="sm" className="gap-2 border-primary text-primary hover:bg-accent">
-              <Phone className="w-4 h-4" /> Call Now
-            </Button>
-          </a>
-          <a href="#appointment">
-            <Button size="sm" className="bg-gradient-hero text-primary-foreground hover:opacity-90">
-              Book Appointment
-            </Button>
-          </a>
-        </div>
-
-        {/* Mobile: logo + hamburger on right */}
+        {/* Mobile: name/tagline + hamburger on right */}
         <div className="md:hidden flex items-center gap-2">
-          <img src={logo} alt="Aadityaa Hospital Logo" className="h-10 w-auto" />
+          <a href="#home" className="flex flex-col leading-tight">
+            <span
+              className="text-base font-extrabold tracking-wide"
+              style={{ color: "#D4A017", fontFamily: "'Times New Roman', Times, serif" }}
+            >
+              AADITYAA HOSPITAL
+            </span>
+            <div className="flex items-center gap-1.5 mt-0.5">
+              <span className="flex-1 h-[1.5px]" style={{ backgroundColor: "#2D1054" }} />
+              <span
+                className="text-[7px] font-semibold tracking-[0.12em] whitespace-nowrap"
+                style={{ color: "#2D1054", fontFamily: "'Times New Roman', Times, serif" }}
+              >
+                HEALING WITH TRUST AND EXPERTISE
+              </span>
+              <span className="flex-1 h-[1.5px]" style={{ backgroundColor: "#2D1054" }} />
+            </div>
+          </a>
           <button className="p-2" onClick={() => setOpen(!open)} aria-label="Toggle menu">
             {open ? <X className="w-6 h-6 text-foreground" /> : <Menu className="w-6 h-6 text-foreground" />}
           </button>
