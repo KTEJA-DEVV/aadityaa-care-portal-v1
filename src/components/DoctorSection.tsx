@@ -7,6 +7,7 @@ interface Doctor {
   name: string;
   qualifications: string;
   designation: string;
+  image?: string;
 }
 
 interface Department {
