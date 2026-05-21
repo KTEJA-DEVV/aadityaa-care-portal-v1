@@ -1,14 +1,12 @@
 import { useState } from "react";
-import emailjs from "@emailjs/browser";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
 
-const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";
-const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
-const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
+// Replace with your deployed Google Apps Script Web App URL
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/REPLACE_WITH_YOUR_DEPLOYMENT_ID/exec";
 
 const services = [
   "Pregnancy Care",
@@ -40,25 +38,30 @@ const AppointmentSection = () => {
     if (!validate()) return;
     setSubmitting(true);
     try {
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        {
-          name: form.name,
-          phone: form.phone,
-          email: form.email,
-          date: form.date,
-          service: form.service,
-          message: form.message,
-          to_email: "aadityaahospitals@gmail.com",
-        },
-        { publicKey: EMAILJS_PUBLIC_KEY }
-      );
+      const payload = {
+        timestamp: new Date().toISOString(),
+        name: form.name,
+        phone: form.phone,
+        email: form.email,
+        date: form.date,
+        service: form.service,
+        message: form.message,
+      };
+
+      // Use no-cors + text/plain to avoid CORS preflight issues with Apps Script.
+      // Apps Script will still receive the JSON body via e.postData.contents.
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(payload),
+      });
+
       toast.success("Appointment request submitted! We'll contact you shortly.");
       setForm({ name: "", phone: "", email: "", date: "", service: "", message: "" });
       setErrors({});
     } catch (err) {
-      console.error("EmailJS error:", err);
+      console.error("Google Sheets submission error:", err);
       toast.error("Failed to send appointment request. Please try again.");
     } finally {
       setSubmitting(false);
