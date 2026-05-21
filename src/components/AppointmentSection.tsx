@@ -22,6 +22,7 @@ const services = [
 const AppointmentSection = () => {
   const [form, setForm] = useState({ name: "", phone: "", email: "", date: "", service: "", message: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [submitting, setSubmitting] = useState(false);
 
   const validate = () => {
     const e: Record<string, string> = {};
