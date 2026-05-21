@@ -135,8 +135,8 @@ const AppointmentSection = () => {
             onChange={(e) => setForm({ ...form, message: e.target.value })}
             rows={3}
           />
-          <Button type="submit" size="lg" className="w-full bg-gradient-hero text-primary-foreground hover:opacity-90 text-base font-semibold">
-            Submit Appointment Request
+          <Button type="submit" size="lg" disabled={submitting} className="w-full bg-gradient-hero text-primary-foreground hover:opacity-90 text-base font-semibold">
+            {submitting ? "Sending..." : "Submit Appointment Request"}
           </Button>
         </form>
       </div>
