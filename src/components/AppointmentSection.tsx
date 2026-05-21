@@ -35,12 +35,34 @@ const AppointmentSection = () => {
     return Object.keys(e).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
-    toast.success("Appointment request submitted! We'll contact you shortly.");
-    setForm({ name: "", phone: "", email: "", date: "", service: "", message: "" });
-    setErrors({});
+    setSubmitting(true);
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          name: form.name,
+          phone: form.phone,
+          email: form.email,
+          date: form.date,
+          service: form.service,
+          message: form.message,
+          to_email: "aadityaahospitals@gmail.com",
+        },
+        { publicKey: EMAILJS_PUBLIC_KEY }
+      );
+      toast.success("Appointment request submitted! We'll contact you shortly.");
+      setForm({ name: "", phone: "", email: "", date: "", service: "", message: "" });
+      setErrors({});
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      toast.error("Failed to send appointment request. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
