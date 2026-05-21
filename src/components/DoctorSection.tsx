@@ -1,6 +1,7 @@
 import { GraduationCap, Award, Briefcase, Stethoscope } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import doctorImg from "@/assets/dr-sreelatha.png";
+import drKumarBhanu from "@/assets/dr-kumar-bhanu.jpeg";
 
 interface Doctor {
   name: string;
