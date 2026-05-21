@@ -1,9 +1,14 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
+
+const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";
+const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
+const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
 
 const services = [
   "Pregnancy Care",
@@ -17,6 +22,7 @@ const services = [
 const AppointmentSection = () => {
   const [form, setForm] = useState({ name: "", phone: "", email: "", date: "", service: "", message: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [submitting, setSubmitting] = useState(false);
 
   const validate = () => {
     const e: Record<string, string> = {};
@@ -29,12 +35,34 @@ const AppointmentSection = () => {
     return Object.keys(e).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
-    toast.success("Appointment request submitted! We'll contact you shortly.");
-    setForm({ name: "", phone: "", email: "", date: "", service: "", message: "" });
-    setErrors({});
+    setSubmitting(true);
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          name: form.name,
+          phone: form.phone,
+          email: form.email,
+          date: form.date,
+          service: form.service,
+          message: form.message,
+          to_email: "aadityaahospitals@gmail.com",
+        },
+        { publicKey: EMAILJS_PUBLIC_KEY }
+      );
+      toast.success("Appointment request submitted! We'll contact you shortly.");
+      setForm({ name: "", phone: "", email: "", date: "", service: "", message: "" });
+      setErrors({});
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      toast.error("Failed to send appointment request. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -107,8 +135,8 @@ const AppointmentSection = () => {
             onChange={(e) => setForm({ ...form, message: e.target.value })}
             rows={3}
           />
-          <Button type="submit" size="lg" className="w-full bg-gradient-hero text-primary-foreground hover:opacity-90 text-base font-semibold">
-            Submit Appointment Request
+          <Button type="submit" size="lg" disabled={submitting} className="w-full bg-gradient-hero text-primary-foreground hover:opacity-90 text-base font-semibold">
+            {submitting ? "Sending..." : "Submit Appointment Request"}
           </Button>
         </form>
       </div>
