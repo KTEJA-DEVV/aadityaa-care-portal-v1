@@ -170,8 +170,12 @@ const DoctorSection = () => {
                     key={doc.name}
                     className="flex items-start gap-4 p-4 rounded-xl bg-card border border-border shadow-sm hover:shadow-md transition-shadow"
                   >
-                    <div className="w-11 h-11 rounded-full bg-accent flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Stethoscope className="w-5 h-5 text-primary" />
+                    <div className="w-11 h-11 rounded-full bg-accent flex items-center justify-center flex-shrink-0 mt-0.5 overflow-hidden">
+                      {doc.image ? (
+                        <img src={doc.image} alt={doc.name} className="w-full h-full object-cover object-top" />
+                      ) : (
+                        <Stethoscope className="w-5 h-5 text-primary" />
+                      )}
                     </div>
                     <div className="min-w-0">
                       <p className="font-semibold text-foreground text-sm">{doc.name}</p>
