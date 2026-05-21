@@ -88,6 +88,7 @@ const departments: Department[] = [
         name: "Dr. Kumar Bhanu",
         qualifications: "D.Ortho, DNB (Orthopedics)",
         designation: "Fellowship in Robotic Joint Replacement & Arthroscopy-Sports Medicine",
+        image: drKumarBhanu,
       },
     ],
   },
