@@ -1,11 +1,13 @@
 import { GraduationCap, Award, Briefcase, Stethoscope } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import doctorImg from "@/assets/dr-sreelatha.png";
+import drKumarBhanu from "@/assets/dr-kumar-bhanu.jpeg";
 
 interface Doctor {
   name: string;
   qualifications: string;
   designation: string;
+  image?: string;
 }
 
 interface Department {
@@ -86,6 +88,7 @@ const departments: Department[] = [
         name: "Dr. Kumar Bhanu",
         qualifications: "D.Ortho, DNB (Orthopedics)",
         designation: "Fellowship in Robotic Joint Replacement & Arthroscopy-Sports Medicine",
+        image: drKumarBhanu,
       },
     ],
   },
@@ -167,8 +170,12 @@ const DoctorSection = () => {
                     key={doc.name}
                     className="flex items-start gap-4 p-4 rounded-xl bg-card border border-border shadow-sm hover:shadow-md transition-shadow"
                   >
-                    <div className="w-11 h-11 rounded-full bg-accent flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Stethoscope className="w-5 h-5 text-primary" />
+                    <div className="w-11 h-11 rounded-full bg-accent flex items-center justify-center flex-shrink-0 mt-0.5 overflow-hidden">
+                      {doc.image ? (
+                        <img src={doc.image} alt={doc.name} className="w-full h-full object-cover object-top" />
+                      ) : (
+                        <Stethoscope className="w-5 h-5 text-primary" />
+                      )}
                     </div>
                     <div className="min-w-0">
                       <p className="font-semibold text-foreground text-sm">{doc.name}</p>
