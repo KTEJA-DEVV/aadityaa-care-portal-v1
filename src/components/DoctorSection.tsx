@@ -4,12 +4,14 @@ import doctorImg from "@/assets/dr-sreelatha.png";
 import drKumarBhanu from "@/assets/dr-kumar-bhanu.jpeg";
 import drKrishnaReddy from "@/assets/dr-krishna-reddy.png";
 import drNikhitha from "@/assets/dr-nikhitha.png";
+import drSrinuNaik from "@/assets/dr-srinu-naik.png";
 
 interface Doctor {
   name: string;
   qualifications: string;
   designation: string;
   image?: string;
+  imagePosition?: string;
 }
 
 interface Department {
@@ -36,6 +38,7 @@ const departments: Department[] = [
         qualifications: "MBBS, DA, FIPM, FUGRA",
         designation: "Consultant Anaesthesiologist & Pain Physician",
         image: drKrishnaReddy,
+        imagePosition: "center 20%",
       },
       {
         name: "Dr. Naveen Kumar",
@@ -66,6 +69,7 @@ const departments: Department[] = [
         name: "Dr. Srinu Naik",
         qualifications: "MBBS, MS (Gen Surgery)",
         designation: "General, Laparoscopic & Laser Surgeon",
+        image: drSrinuNaik,
       },
       {
         name: "Dr. G. Suresh Reddy",
@@ -186,7 +190,7 @@ const DoctorSection = () => {
                   >
                     <div className="w-11 h-11 rounded-full bg-accent flex items-center justify-center flex-shrink-0 mt-0.5 overflow-hidden">
                       {doc.image ? (
-                        <img src={doc.image} alt={doc.name} className="w-full h-full object-cover object-top" />
+                        <img src={doc.image} alt={doc.name} className="w-full h-full object-cover" style={{ objectPosition: doc.imagePosition ?? "center top" }} />
                       ) : (
                         <Stethoscope className="w-5 h-5 text-primary" />
                       )}
