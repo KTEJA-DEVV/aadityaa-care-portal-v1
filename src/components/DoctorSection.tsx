@@ -190,7 +190,7 @@ const DoctorSection = () => {
                   >
                     <div className="w-11 h-11 rounded-full bg-accent flex items-center justify-center flex-shrink-0 mt-0.5 overflow-hidden">
                       {doc.image ? (
-                        <img src={doc.image} alt={doc.name} className="w-full h-full object-cover object-top" />
+                        <img src={doc.image} alt={doc.name} className="w-full h-full object-cover" style={{ objectPosition: doc.imagePosition ?? "center top" }} />
                       ) : (
                         <Stethoscope className="w-5 h-5 text-primary" />
                       )}
