@@ -2,6 +2,8 @@ import { GraduationCap, Award, Briefcase, Stethoscope } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import doctorImg from "@/assets/dr-sreelatha.png";
 import drKumarBhanu from "@/assets/dr-kumar-bhanu.jpeg";
+import drKrishnaReddy from "@/assets/dr-krishna-reddy.png";
+import drNikhitha from "@/assets/dr-nikhitha.png";
 
 interface Doctor {
   name: string;
@@ -33,6 +35,7 @@ const departments: Department[] = [
         name: "Dr. Kasireddy Krishnareddy",
         qualifications: "MBBS, DA, FIPM, FUGRA",
         designation: "Consultant Anaesthesiologist & Pain Physician",
+        image: drKrishnaReddy,
       },
       {
         name: "Dr. Naveen Kumar",
@@ -89,6 +92,17 @@ const departments: Department[] = [
         qualifications: "D.Ortho, DNB (Orthopedics)",
         designation: "Fellowship in Robotic Joint Replacement & Arthroscopy-Sports Medicine",
         image: drKumarBhanu,
+      },
+    ],
+  },
+  {
+    name: "Nutrition & Dietetics",
+    doctors: [
+      {
+        name: "Dr. Nikhitha",
+        qualifications: "",
+        designation: "Consultant Nutritionist",
+        image: drNikhitha,
       },
     ],
   },
