@@ -6,7 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { toast } from "sonner";
 
 // Replace with your deployed Google Apps Script Web App URL
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyL6fY4K04j6aGdf2lR7Dup_DRaE6jvyESXVeMZ1bIBFPYwz4X20nVMl5Be_gLd6WMe/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyowRtLyoj2hnll60JNx0YDCB_rC2ipAMBy3HYwy_8/dev";
 
 const services = [
   "Pregnancy Care",
